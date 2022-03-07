@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lo sentimos, página no encontrada 404</title>
+</head>
+<body>
+    <!-- 404 = no encuentra la ruta -->
+    <h3 style="color: blue"Oops! Página no encontrada</h3>
+    <div th:text="${error}"></div>
+    <div th:text="${status}"></div>
+    <div th:text="${timestamp}"></div>
+    <hr>
+    <div th:text="${path}"></div>
+
+
+
+
+    
+</body>
+</html>

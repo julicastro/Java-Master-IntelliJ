@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<body>
+    <section th:fragment="interceptor" th:if="${tiempoTrancurrido != null}">
+        <div class="alert alert-success">
+            <span th:text="'Tiempo Transcurrido: ' + ${tiempoTrancurrido} + ' en milisegundos'"></span>
+        </div>
+    </section>
+
+    <section th:fragment="controlador">
+        <div class="alert alert-warning">
+            <span th:text="'Controller usado: ' + ${controllerUsado}"></span>
+        </div>
+    </section>
+
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ha ocurrido un error Oops!</title>
+</head>
+<body>
+    <!-- 500 = no existe la plantilla-->
+    <h3>Ha ocurrido un error Oops!</h3>
+    <div th:text="${error}"></div>
+    <div th:text="${message}"></div>
+    <div th:text="${status}"></div>
+    <div th:text="${timestamp}"></div>
+    <hr>
+    <div th:text="${trace}"></div>
+
+
+
+
+    
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${titulo}"></title>
+</head>
+
+<body>
+    <h3 th:text="${titulo}"></h3>
+    <ul>
+        <li th:text="${usuario.nombre}"></li><!-- por debajo invoca el metodo Get (getter)-->
+        <li th:text="${usuario.apellido}"></li>
+        <li th:text="${usuario.username}"></li>
+        <li th:text="${usuario.password}"></li>
+        <li th:text="${usuario.email}"></li>
+        <li th:text="${usuario.identificador}"></li>
+        <li>Id con expresión regular: <span th:text="${usuario.idregular}"></span></li>
+        <li th:text="${usuario.cuenta}"></li>
+        <li th:text="${usuario.fechaNacimiento}"></li>
+
+
+
+    </ul>
+
+
+
+</body>
+
+</html>

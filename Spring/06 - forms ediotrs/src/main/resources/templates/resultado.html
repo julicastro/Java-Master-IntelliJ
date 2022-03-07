@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${titulo}"></title>
+</head>
+
+<body>
+    <h3 th:text="${titulo}"></h3>
+    <ul>
+        <li th:text="${usuario.nombre}"></li><!-- por debajo invoca el metodo Get (getter)-->
+        <li th:text="${usuario.apellido}"></li>
+        <li th:text="${usuario.username}"></li>
+        <li th:text="${usuario.password}"></li>
+        <li th:text="${usuario.email}"></li>
+        <!--<li th:text="${usuario.identificador}"></li>-->
+        <li th:text="${usuario.idregular}"></li>
+        <li th:text="${usuario.cuenta}"></li>
+        <li th:text="${usuario.pais.codigo}"></li>
+        <li th:text="${usuario.pais.id}"></li>
+        <li th:text="${usuario.pais.nombre}"></li>
+        <li th:text="${#dates.format(usuario.fechaNacimiento, 'dd/MM/yyyy')}"></li>
+        <li th:text="${#calendars.format(usuario.fechaNacimiento, 'dd-MM-yyyy')}"></li>
+        <li th:text="'Habilitado: ' + ${usuario.habilitar}"></li>
+        <li th:text="'Genero: ' + ${usuario.genero}"></li>
+        <li th:text="'Hidden Value: ' + ${usuario.valorSecreto}"></li>
+
+
+
+
+
+    </ul>
+    <div>Roles </div>
+    <ul>
+        <li th:each="role: ${usuario.roles}" th:text="${role.id} + ': ' + ${role.nombre} + ' => ' + ${role.role}">
+
+        </li>
+    </ul>
+
+
+</body>
+
+</html>

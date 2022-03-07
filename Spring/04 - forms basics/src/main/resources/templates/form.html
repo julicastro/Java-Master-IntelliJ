@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${titulo}"></title>
+</head>
+
+<body>
+    <h3 th:text="${titulo}"></h3>
+    <form th:action="@{/form}" method="post">
+        <div>
+            <label for="username">Username</label>
+            <!--en el for va el id del input -->
+            <div>
+                <input type="text" name="username" id="user" th:value="${usuario.username}"><!-- para q no se reincio el valor usamos ese th:value-->
+            </div>
+            <!--error.containsKey es un metodo propio de los Maps de Java -->
+            <div style="color: red" th:if="${error != null && error.containsKey('username')}" 
+                 th:text="${error.username}"><!--accedemos a la llave username del objeto Map -->
+            </div>
+        </div>
+        <div>
+            <label for="password">Password</label>
+            <div>
+                <input type="password" name="password" id="password">
+            </div>
+            <div style="color: red" th:if="${error != null && error.containsKey('password')}" 
+                 th:text="${error.password}">
+            </div>
+        </div>
+        <div>
+            <label for="email">Correo</label>
+            <div>
+                <input type="email" name="email" id="email" th:value="${usuario.email}">
+            </div>
+            <div style="color: red" th:if="${error != null && error.containsKey('email')}" 
+                 th:text="${error.email}">
+            </div>
+        </div>
+        <div>
+            <div>
+                <input type="submit" value="Enviar">
+            </div>
+        </div>
+
+    </form>
+</body>
+
+</html>

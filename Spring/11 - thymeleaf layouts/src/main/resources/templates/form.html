@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout/layout :: head">
+</head>
+
+<body>
+
+    <header th:replace="layout/layout :: header">
+    </header>
+ 
+
+    <div class="container">
+
+        <h1 th:text="${titulo}" class="text-primary"></h1>
+
+        <div th:object="${cliente}" th:remove="tag"> 
+            <!-- esta es otra forma de mostrar los mensajes de error.
+             remove tag sirve para eliminar el contenedor en el html -->
+             <ul th:if="${#fields.hasErrors('*')}" class="alert alert-danger"> 
+                 <!-- "*" = si existe algun error -->
+                 <li th:each="err: ${#fields.errors('*')}" th:text="${err}"></li> 
+             </ul>
+             
+        </div>
+        
+
+        <form th:action="@{/form}" th:object="${cliente}" method="post">
+            <!-- th:action contiene la ruta hacia el metodo POST q procesa el formulario -->
+            <!-- cliente es el objeto q pasamos con el model pero en GET -->
+
+          
+            <div class="form-group row mb-3">
+                <label class="col-form-label col-sm-2">Nombre</label>
+                <div class="col-sm-6">
+                    <input type="text" th:field="*{nombre}" class="form-control" th:errorclass="'form-control alert-danger'"/>
+                    <small th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"
+                        class="form-text text-danger"></small>
+                </div>
+            </div>
+            <!-- "*" mapea directamente al atributo de la clase Cliente -->
+            <div class="form-group row mb-3">
+                <label class="col-form-label col-sm-2">Apellido</label>
+                <div class="col-sm-6">
+                    <input type="text" th:field="*{apellido}" class="form-control" th:errorclass="'form-control alert-danger'"/>
+                    <small th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}"
+                        class="form-text text-danger"></small>
+                </div>
+            </div>
+
+            <div class="form-group row mb-3">
+                <label class="col-form-label col-sm-2">Email</label>
+                <div class="col-sm-6">
+                    <input type="text" th:field="*{email}" class="form-control" th:errorclass="'form-control alert-danger'" />
+                    <small th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
+                        class="form-text text-danger"></small>
+                </div>
+            </div>
+
+            <div class="form-group row mb-3">
+                <label class="col-form-label col-sm-2">Fecha</label>
+                <div class="col-sm-6">
+                    <input type="text" th:field="*{createAt}" class="form-control" th:errorclass="'form-control alert-danger'"/>
+                    <small th:if="${#fields.hasErrors('createAt')}" th:errors="*{createAt}"
+                        class="form-text text-danger"></small>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-6">
+                    <input type="submit" th:value="${botonSubmit}" class="btn btn-primary" />
+                </div>
+            </div>
+
+            <!--
+                alternativa para obtener el id. sino con SessionsAttributes
+            <input type="hidden" th:field="*{id}" />
+            -->
+
+        </form>
+    </div>
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

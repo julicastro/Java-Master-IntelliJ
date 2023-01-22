@@ -1,7 +1,6 @@
-# Java-Master-IntelliJ
-Contiene toda la práctica realizada en el curso "Máster Completo en Java de cero a experto 2022 (+127 hrs)"
+# Máster Completo en Java de cero a experto 2023 (+127 hrs)
 
-Link: https://www.udemy.com/share/103lFQ2@PW1KbF9fTlEMc09AEktNVA==/
+Link: https://www.udemy.com/course/master-completo-java-de-cero-a-experto/
 
 ![certificado](https://user-images.githubusercontent.com/70999224/207764172-d40abb0e-1d5a-4421-9713-6472624b63ae.jpg)
 
